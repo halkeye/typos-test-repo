@@ -26,8 +26,11 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Get and run typos
+        run: |
+          wget -O typos https://halkeye.sfo2.digitaloceanspaces.com/typos
+          chmod +x typos
+          ./typos --format github
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
